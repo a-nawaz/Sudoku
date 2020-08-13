@@ -104,7 +104,8 @@ class SudokuApp:
 ############ Helper Functions ##############
 
     def cube_coordinate(self):
-        if self.mouse_pos[0] < GRID_POSITION[0] or self.mouse_pos[0] > GRID_POSITION[0] + GRID_WIDTH or self.mouse_pos[1] < GRID_POSITION[1] or self.mouse_pos[1] > GRID_POSITION[1] + GRID_HEIGHT:
+        if (self.mouse_pos[0] < GRID_POSITION[0] or self.mouse_pos[0] > GRID_POSITION[0] + GRID_WIDTH or
+                self.mouse_pos[1] < GRID_POSITION[1] or self.mouse_pos[1] > GRID_POSITION[1] + GRID_HEIGHT):
             return None
         else:
             return ((self.mouse_pos[1] - GRID_POSITION[1]) // CUBE_SIZE, (self.mouse_pos[0] - GRID_POSITION[0]) // CUBE_SIZE)
