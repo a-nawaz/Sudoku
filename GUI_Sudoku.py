@@ -72,19 +72,6 @@ class SudokuApp:
                         self.temp = None
                         self.update_board(self.key)
 
-    def update_board(self, key):
-        if is_valid(self.model, key, self.selected) or key == 0:
-            self.valid_input = True
-            self.model[self.selected[0]][self.selected[1]] = key
-        else:
-            self.valid_input = False
-
-    def reset_board(self):
-        for i in range(9):
-            for j in range(9):
-                if not (i, j) in self.locked_cubes:
-                    self.model[i][j] = 0
-
     def update(self):
         self.mouse_pos = pygame.mouse.get_pos()
         for button in self.buttons:
@@ -110,6 +97,19 @@ class SudokuApp:
             return None
         else:
             return ((self.mouse_pos[1] - GRID_POSITION[1]) // CUBE_SIZE, (self.mouse_pos[0] - GRID_POSITION[0]) // CUBE_SIZE)
+
+    def update_board(self, key):
+        if is_valid(self.model, key, self.selected) or key == 0:
+            self.valid_input = True
+            self.model[self.selected[0]][self.selected[1]] = key
+        else:
+            self.valid_input = False
+
+    def reset_board(self):
+        for i in range(9):
+            for j in range(9):
+                if not (i, j) in self.locked_cubes:
+                    self.model[i][j] = 0
 
     def draw_selection_box(self, pos):
         pygame.draw.rect(self.window, LIGHT_BLUE,
