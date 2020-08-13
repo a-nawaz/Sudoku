@@ -40,6 +40,7 @@ class SudokuApp:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.selected = self.cube_coordinate()
                 if self.buttons[0].update_button(self.mouse_pos):
+                    self.reset_board()
                     solve(self.model)
                 if self.buttons[1].update_button(self.mouse_pos):
                     self.reset_board()
