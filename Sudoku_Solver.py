@@ -71,10 +71,10 @@ def solve(board):
 			board[row][col] = 0
 	return False
 
-
-print("Input Board")
-print_board(input_board)
-print("--------------------")
-solve(input_board)
-print("Solved Board")
-print_board(input_board)
+if __name__ == "__main__":
+	print("Input Board")
+	print_board(input_board)
+	print("--------------------")
+	solve(input_board)
+	print("Solved Board")
+	print_board(input_board)
